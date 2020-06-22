@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'paidcontainer.dart';
 
 class Paid extends StatefulWidget {
   @override
@@ -11,92 +12,11 @@ class _PaidState extends State<Paid> {
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
-        Container(
-          decoration: BoxDecoration(
-            border: Border(
-              bottom: BorderSide(width: 0.3, color: Colors.grey),
-            ),
-          ),
-          padding: EdgeInsets.all(08),
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'Person 1',
-                        style: TextStyle(
-                          fontFamily: 'NunitoSans',
-                          fontWeight: FontWeight.w600,
-                          fontSize: 20,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 3,
-                      ),
-                      Text(
-                        'Invoice 1',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontFamily: 'NunitoSans',
-                          color: Color(0xff707070),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        padding: EdgeInsets.all(1.5),
-                        decoration: BoxDecoration(
-                          color: Colors.green,
-                          shape: BoxShape.rectangle,
-                          borderRadius: BorderRadius.all(Radius.circular(5)),
-                        ),
-                        child: Text(
-                          'Paid',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'NunitoSans',
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                    ]),
-                Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: <Widget>[
-                      Text(
-                        '₹ 761.00',
-                        style: TextStyle(
-                          fontFamily: 'NunitoSans',
-                          fontWeight: FontWeight.w600,
-                          fontSize: 19,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 3,
-                      ),
-                      Text(
-                        'Jan 24,2020',
-                        style: TextStyle(
-                          fontFamily: 'NunitoSans',
-                          color: Color(0xff707070),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      FaIcon(
-                        FontAwesomeIcons.solidEdit,
-                        color: Color(0xff2699FB),
-                        size: 20,
-                      ),
-                    ])
-              ]),
-        ),
+        PaidContainer(
+          customer_name: 'Peetamber',
+          invoice_name: 'myinvoice',
+          price: 500,
+        )
       ],
     );
   }

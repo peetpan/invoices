@@ -99,8 +99,13 @@ class _InvoicesState extends State<Invoices>
           ]),
         ),
         body: TabBarView(
-            controller: controller,
-            children: <Widget>[all.All(), unpaid.Unpaid(), paid.Paid()]),
+          controller: controller,
+          children: <Widget>[
+            all.All(),
+            unpaid.Unpaid(),
+            paid.Paid(),
+          ],
+        ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           backgroundColor: mainBluex,
