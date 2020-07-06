@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:invoices/list_brain.dart';
 import 'all.dart' as all;
 import 'paid.dart' as paid;
 import 'unpaid.dart' as unpaid;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'unpaidcontainer.dart';
+import 'paidcontainer.dart';
 
 void main() {
   runApp(Invoices());
@@ -18,16 +21,16 @@ class _InvoicesState extends State<Invoices>
   int _currentIndex = 0;
   Color mainBlue = Color(0xff2699FB);
   Color mainBluex = Color(0xff2699FB);
-//  final List<Widget> _children = [
-//
-//  ];
+
+  List<Widget> data = [];
+  List<Widget> unpaiddata = [];
+  List<Widget> paiddata = [];
+
   TextStyle navigationText = TextStyle(
     fontFamily: "NunitoSans",
     fontSize: 16,
   );
-
   TabController controller;
-
   @override
   void initState() {
     super.initState();
@@ -101,7 +104,12 @@ class _InvoicesState extends State<Invoices>
         body: TabBarView(
           controller: controller,
           children: <Widget>[
-            all.All(),
+            ListView.builder(
+              itemCount: data.length,
+              itemBuilder: (context, index) {
+                return PaidContainer();
+              },
+            ),
             unpaid.Unpaid(),
             paid.Paid(),
           ],
@@ -149,7 +157,11 @@ class _InvoicesState extends State<Invoices>
           ],
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            setState(() {
+              data.add(PaidContainer());
+            });
+          },
           child: Icon(Icons.add),
           backgroundColor: Color(0xff2699FB),
         ),

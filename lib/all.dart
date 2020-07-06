@@ -10,21 +10,13 @@ class All extends StatefulWidget {
 }
 
 class _AllState extends State<All> {
+  List<Widget> data = [];
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: <Widget>[
-        PaidContainer(
-          customer_name: 'Peetamber',
-          invoice_name: 'myinvoice',
-          price: 500,
-        ),
-        UnpaidContainer(
-          customer_name: 'Amit',
-          invoice_name: 'grocery',
-          price: 325,
-        )
-      ],
-    );
+    return ListView.builder(
+        itemCount: data.length,
+        itemBuilder: (context, index) {
+          return PaidContainer();
+        });
   }
 }

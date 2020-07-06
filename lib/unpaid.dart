@@ -8,6 +8,7 @@ class Unpaid extends StatefulWidget {
 }
 
 class _UnpaidState extends State<Unpaid> {
+  List<Widget> unpaidlist = [];
   @override
   Widget build(BuildContext context) {
     return ListView(
